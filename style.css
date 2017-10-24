@@ -1,0 +1,227 @@
+/******************************************************************
+ Theme Name:   Cross Divisional: Single Pager
+ Theme URI:    https://github.com/ksascomm/ksas_cross_divisional_research
+ Description:  Single Pager version of KSAS X-Div Theme.
+ Author:       Tim Gelles
+ Author URI:   http://krieger.jhu.edu
+ Template:     ksas_cross_divisional
+ Version:      1.1.1
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+******************************************************************/
+body {
+    font-family: "gentona-book", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-weight: 400;}
+ 
+h1, h2 {
+    font-family: "quadon", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-weight: 600; }
+
+#mobile-nav {
+	background: inherit !important;
+}
+
+li.current_page_item > a {
+	font-weight: bold;
+}
+
+.input-group>input {
+    margin-bottom: 0px;
+}
+
+h1.search-result {
+  font-size: 1.25rem !important;
+}
+
+.black {
+  color: #2C2C33;
+}
+
+#main a[href$= ".pdf"]:after,#main a[href$= ".doc"]:after,#main a[href$= ".docx"]:after,#main a[href$= ".xls"]:after,#main a[href$= ".xlsx"]:after,#main a[href$= ".ppt"]:after,#main a[href$= ".pptx"]:after{
+font-family: 'FontAwesome';
+color:#2C2C33;
+font-size: 1.5rem;
+padding-left:.4rem;       
+}
+#main a[href$= ".pdf"]:after{
+content: '\f1c1';
+}
+#main a[href$= ".doc"]:after,#main a[href$= ".docx"]:after{
+content: '\f1c2';
+}
+#main a[href$= ".xls"]:after,#main a[href$= ".xlsx"]:after{
+content: '\f1c3';
+}
+#main a[href$= ".ppt"]:after,#main a[href$= ".pptx"]:after{
+content: '\f1c4';
+}
+
+.widget_search h4 {
+  padding: 12px 15px 10px 0;
+}
+
+.caption {
+    margin: 2em auto;
+}
+
+.caption h3 {
+  font-size: 1.75rem;
+}
+
+ul#directory {
+margin-left: 0px;
+}
+
+li.person {
+  min-height: inherit;
+  padding-left: inherit;
+}
+
+.paged > .pagination {
+  display: flex
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .fullscreen-image-slider .orbit-caption {
+    padding: 0.3rem;
+  }   
+}
+
+@media screen and (max-width: 63.9375em) {
+  .column-icon {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) { 
+
+.fullscreen-image-slider .orbit-image {
+  width: 100%;
+}
+
+.fullscreen-image-slider .orbit-caption {
+   right: 5%;
+  bottom: 50%;
+  -webkit-transform: translateY(50%);
+      -ms-transform: translateY(50%);
+          transform: translateY(50%);
+  color: #fefefe;
+  font-weight: bold;
+  width: 550px;
+  padding: 2rem 4rem;
+  font-size: 1.25rem;
+  background-color: rgba(44, 44, 51, 0.66);
+}
+
+.column-icon {
+    width: 150%;
+    margin-left: -4rem;
+}
+
+}
+
+.fullscreen-image-slider .orbit-caption > h1 {
+  font-size: 1.95rem;
+}
+
+.fullscreen-image-slider .orbit-caption > h4 > a {
+  color: white;
+}
+
+.button.search {
+  margin-top: 1.5rem;
+}
+
+.home-intro {
+  font-size: 1.25rem;
+  //background: #c3dcf5;
+  padding-top: 45px;
+  //padding-bottom: 45px;
+  padding-left: calc(50% - 600px);
+  padding-right: calc(50% - 600px);
+}
+
+.padding-top-zero {
+  padding-top: 0rem !important;
+}
+
+.featured-hero {
+  height: 23rem;
+}
+
+h1.headline {
+  font-size: 1.75rem;
+}
+
+.orbit-caption {
+  background-color: rgba(44, 44, 51, 0.85);
+}
+
+.widget-area-header {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: "gentona-book", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
+
+.footer-widgets {
+  background: #f2f2f2;
+  padding: 0px 20px 1px 20px;
+  margin-bottom: -1rem;
+}
+
+.home-intro:focus {
+  outline: 0;
+} 
+.hp-buckets:focus {
+  outline: 0;
+} 
+.news-area:focus {
+  outline: 0;
+}
+
+.hp-buckets {
+  background: #f2f2f2;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.hp-buckets h2.callout-heading {
+  text-align: center;
+  margin: 2rem;
+}
+
+.hp-buckets h4.widgettitle {
+  font-family: "gentona-bold", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
+
+.hp-buckets .callout {
+  border: none;
+  border-radius: 14px;
+}
+
+.callout.primary, .callout.secondary {
+  background: rgba(104, 172, 228, 0.27);
+}
+
+.news-feed > .callout {
+  border: none;
+  margin-bottom: 0px;
+}
+
+.news-feed h3 {
+  font-family: "quadon", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
+
+.footer-widgets h4.widgettitle {
+  font-family: "gentona-bold", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  padding-top: 1rem;
+}
+
+.skyblue {
+  fill: rgba(104, 172, 228, 1);
+}
