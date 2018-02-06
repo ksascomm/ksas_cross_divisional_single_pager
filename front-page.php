@@ -54,7 +54,7 @@
 
 						<div class="small-12 large-8 large-push-2 columns news-feed" >
 
-							<h3><?php echo $theme_option['flagship_sub_feed_name']; ?></h3>
+							<h1 class="feed-title"><?php echo $theme_option['flagship_sub_feed_name']; ?></h1>
 								
 							<?php while ($news_query->have_posts()) : $news_query->the_post(); ?>
 								
