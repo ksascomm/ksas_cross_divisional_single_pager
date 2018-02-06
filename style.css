@@ -10,20 +10,9 @@
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
 ******************************************************************/
-body {
-    font-family: "gentona-book", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-    font-weight: 400;}
- 
-h1, h2 {
-    font-family: "quadon", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-    font-weight: 600; }
 
 #mobile-nav {
 	background: inherit !important;
-}
-
-li.current_page_item > a {
-	font-weight: bold;
 }
 
 .input-group>input {
@@ -111,7 +100,8 @@ li.person {
       -ms-transform: translateY(50%);
           transform: translateY(50%);
   color: #fefefe;
-  font-weight: bold;
+  font-family: 'gentona-semibold', 'Helvetica Neue', Roboto, sans-serif;
+  font-weight: 600;
   width: 550px;
   padding: 2rem 4rem;
   font-size: 1.25rem;
@@ -139,9 +129,7 @@ li.person {
 
 .home-intro {
   font-size: 1.25rem;
-  //background: #c3dcf5;
   padding-top: 45px;
-  //padding-bottom: 45px;
   padding-left: calc(50% - 600px);
   padding-right: calc(50% - 600px);
 }
@@ -165,7 +153,8 @@ h1.headline {
 .widget-area-header {
   text-align: center;
   font-size: 1.5rem;
-  font-family: "gentona-book", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: 'gentona-bold', 'Helvetica Neue', Roboto, sans-serif;
+  font-weight: 700;
 }
 
 .footer-widgets {
@@ -191,12 +180,15 @@ h1.headline {
 }
 
 .hp-buckets h2.callout-heading {
+  font-family: "quadon-extrabold", "Helvetica Neue", Roboto, sans-serif;
+  font-weight: 700;
   text-align: center;
   margin: 2rem;
 }
 
 .hp-buckets h4.widgettitle {
-  font-family: "gentona-bold", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: 'gentona-bold', 'Helvetica Neue', Roboto, sans-serif;
+  font-weight: 700;
 }
 
 .hp-buckets .callout {
@@ -213,15 +205,15 @@ h1.headline {
   margin-bottom: 0px;
 }
 
-.news-feed h3 {
-  font-family: "quadon", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-}
-
-.footer-widgets h4.widgettitle {
-  font-family: "gentona-bold", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-  padding-top: 1rem;
-}
-
 .skyblue {
   fill: rgba(104, 172, 228, 1);
+}
+
+.header .logo a img {
+  width: 225px;
+}
+
+.news-feed h3 {
+  font-family: "quadon-medium", "Helvetica Neue", Roboto, sans-serif;
+  font-weight: 400;
 }
