@@ -43,13 +43,10 @@
 				
 				<div class="row news-area" id="<?php the_field( 'news_anchor' ); ?>" data-equalizer data-equalize-on="large">
 				    <?php  //News Query		
-						if ( false === ( $news_query = get_transient( 'news_mainpage_query' ) ) ) {
-							$news_query = new WP_Query(array(
-								'post_type' => 'post',
-								'posts_per_page' => -1)); 
-						set_transient( 'news_mainpage_query', $news_query, 2592000 );
-						} 
-
+					$news_query = new WP_Query(array(
+						'post_type' => 'post',
+						'posts_per_page' => -1)); 
+							
 					if ( $news_query->have_posts() ) : ?>
 
 						<div class="small-12 large-8 large-push-2 columns news-feed" >
