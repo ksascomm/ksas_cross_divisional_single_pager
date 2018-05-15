@@ -200,6 +200,10 @@ h1.headline {
   background: rgba(104, 172, 228, 0.27);
 }
 
+.callout.grey {
+  background: #f2f2f2;
+}
+
 .news-feed > .callout {
   border: none;
   margin-bottom: 0px;
@@ -216,4 +220,32 @@ h1.headline {
 .news-feed h3 {
   font-family: "quadon-medium", "Helvetica Neue", Roboto, sans-serif;
   font-weight: 400;
+}
+
+.home-events {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: calc(50% - 600px);
+  padding-right: calc(50% - 600px);
+}
+.home-events .home-events-intro h1 {
+  font-size: 1.5rem;
+}
+.home-events .ai1ec-agenda-view .ai1ec-date {
+  background: none;
+}
+.home-events .ai1ec-agenda-view .ai1ec-event {
+  border: none;
+}
+.home-events .ai1ec-pagination, .home-events .ai1ec-subscribe-container, .home-events .ai1ec-clearfix, .home-events .ai1ec-title-buttons.ai1ec-btn-toolbar, .home-events .ai1ec-calendar-toolbar, .home-events span.ai1ec-categories {
+  display: none;
+}
+.home-events .ai1ec-event-time, .home-events .ai1ec-event-location {
+  font-size: 1rem !important;
+}
+.home-events .ai1ec-event-title {
+  font-size: 1.25rem !important;
+}
+.home-events .ai1ec-time, .home-events .ai1ec-location {
+  font-size: 1rem;
 }

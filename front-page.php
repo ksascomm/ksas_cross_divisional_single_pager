@@ -2,42 +2,66 @@
 	<div id="content">
 
 		<div id="inner-content" class="padding-top-zero">
+				
+			<?php
+			// If a featured image is set, insert into layout and use Interchange
+			// to select the optimal image size per named media query.
+			if ( has_post_thumbnail( $post->ID ) ) : ?>
+				<header class="featured-hero parent" role="banner" data-interchange="[<?php echo the_post_thumbnail_url('featured-small'); ?>, small], [<?php echo the_post_thumbnail_url('featured-medium'); ?>, medium], [<?php echo the_post_thumbnail_url('featured-large'); ?>, large], [<?php echo the_post_thumbnail_url('featured-xlarge'); ?>, xlarge]">
+					<div class="orbit-caption">
+						<div class="row">
+							<h1 class="headline"><?php the_field( 'headline' ); ?></h1>
+						</div>
+					</div>								
+				</header>
+			<?php endif;?>
+			<?php
+			$slider_query = new WP_Query(array(
+				'post_type' => 'slider',
+				'posts_per_page' => '-1',
+				'orderby' => 'menu_order', 
+				'order' => 'ASC'));
+			if ( $slider_query->have_posts() ) : ?>
 
-				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-					<?php
-					// If a featured image is set, insert into layout and use Interchange
-					// to select the optimal image size per named media query.
-					if ( has_post_thumbnail( $post->ID ) ) : ?>
-						<header class="featured-hero parent" role="banner" data-interchange="[<?php echo the_post_thumbnail_url('featured-small'); ?>, small], [<?php echo the_post_thumbnail_url('featured-medium'); ?>, medium], [<?php echo the_post_thumbnail_url('featured-large'); ?>, large], [<?php echo the_post_thumbnail_url('featured-xlarge'); ?>, xlarge]">
-							<div class="orbit-caption">
-								<div class="row">
-									<h1 class="headline"><?php the_field( 'headline' ); ?></h1>
-								</div>
-							</div>								
-						</header>
+			<div class="fullscreen-image-slider hide-for-small-only">			
+				<div class="orbit" role="region" aria-label="Highlighted Research Awards" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
+					<ul class="orbit-container">
+					<?php if ($slider_query->post_count > 1) : ?>
+					<button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+		   			<button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
 					<?php endif;?>
 
-					<div class="home-intro" aria-label="Introduction" id="<?php the_field( 'about_anchor' ); ?>">
-						<div class="row">
-							<div class="small-12 large-2 columns">
-								<div class="column-icon">
-									<?php the_field( 'icon' ); ?>
-								</div>
+					<?php while ($slider_query->have_posts()) : $slider_query->the_post(); ?>
+						<li class="orbit-slide">	
+							<img class="orbit-image" src="<?php echo get_post_meta($post->ID, 'ecpt_slideimage', true); ?>" alt="<?php the_title(); ?>">
+				   		</li>
+				   <?php endwhile;?>
+				   </ul>
+			   </div>
+			</div>		   
+	 	<?php endif; ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+				<div class="home-intro" aria-label="Introduction" id="<?php the_field( 'about_anchor' ); ?>">
+					<div class="row">
+						<div class="small-12 large-2 columns">
+							<div class="column-icon">
+								<?php the_field( 'icon' ); ?>
 							</div>
+						</div>
 
-							<div class="small-12 large-8 large-pull-2 columns introduction">
-								<?php the_content(); ?>	
-							</div>	
+						<div class="small-12 large-8 large-pull-2 columns introduction">
+							<?php the_content(); ?>	
 						</div>	
 					</div>	
-				<?php endwhile; endif; ?>
+				</div>	
+			<?php endwhile; ?>
 
-				<div class="hp-buckets" id="<?php the_field( 'content_area_widget_anchor' ); ?>" role="complementary" >
-			    	<div class="row">
-			    		<h2 class="callout-heading"><?php the_field( 'callout' ); ?></h3>
-						<?php get_sidebar('homepage-column'); ?>
-					</div>
-			    </div>		
+			<div class="hp-buckets" id="<?php the_field( 'content_area_widget_anchor' ); ?>" role="complementary" >
+		    	<div class="row">
+		    		<h2 class="callout-heading"><?php the_field( 'callout' ); ?></h3>
+					<?php get_sidebar('homepage-column'); ?>
+				</div>
+		    </div>		
 
 		    <main id="main" role="main" class="row">
 				
@@ -49,7 +73,7 @@
 							
 					if ( $news_query->have_posts() ) : ?>
 
-						<div class="small-12 large-8 large-push-2 columns news-feed" >
+						<div class="small-12 large-8 large-push-2 columns news-feed">
 
 							<h1 class="feed-title"><?php echo $theme_option['flagship_sub_feed_name']; ?></h1>
 								
@@ -60,7 +84,23 @@
 							<?php endwhile; ?>
 							
 						</div>
-						<?php endif; ?>		
+						<?php endif; ?>
+						<?php //conditional for Agora Institute
+						$blog_id = get_current_blog_id();
+						if ( 88 == $blog_id ) : ?>
+							<div class="small-12 large-8 columns news-feed home-events">
+								<h1 class="feed-title">Upcoming Events</h1>
+								<p>A complete calendar of all events related to the Agora Institute happening at Johns Hopkins is available on our <a href="<?php echo site_url();?>/events/">events page</a>.</p>
+								<div class="row">
+									<?php echo do_shortcode('[ai1ec view="agenda" events_limit="4"]');	?>
+								</div>
+							</div>
+							<div class="small-12 large-3 columns">
+								<div class="grey callout">
+									<?php dynamic_sidebar('homepage2'); ?>
+								</div>
+							</div>
+						<?php endif;?>
 
 						<?php if ( is_active_sidebar( 'homepage1' ) && is_active_sidebar( 'homepage2' )  ) : ?>
 						    <div class="row" id="hp-buckets-2">
