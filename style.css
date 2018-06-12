@@ -5,7 +5,7 @@
  Author:       Tim Gelles
  Author URI:   http://krieger.jhu.edu
  Template:     ksas_cross_divisional
- Version:      1.1.2
+ Version:      1.1.3
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
@@ -284,4 +284,8 @@ button.frm_button_submit.frm_final_submit {
     line-height: 1;
     text-align: center;
     cursor: pointer;
+}
+
+.frm_hidden {
+    display: none !important;
 }
