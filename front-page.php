@@ -90,7 +90,7 @@
 						if ( 88 == $blog_id ) : ?>
 							<div class="small-12 large-8 columns news-feed home-events">
 								<h1 class="feed-title">Upcoming Events</h1>
-								<p>A complete calendar of all events related to the Agora Institute happening at Johns Hopkins is available on our <a href="<?php echo site_url();?>/events/">events page</a>.</p>
+								<p>A complete calendar of all events related to the SNF Agora Institute happening at Johns Hopkins is available on our <a href="<?php echo site_url();?>/events/">events page</a>.</p>
 								<div class="row">
 									<?php echo do_shortcode('[ai1ec view="agenda" events_limit="4"]');	?>
 								</div>
