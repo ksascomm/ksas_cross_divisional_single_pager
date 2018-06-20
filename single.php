@@ -4,7 +4,7 @@
 
 	<div id="inner-content" class="row">
 
-		<main id="main" class="small-12 large-9 large-push-2 columns" role="main">
+		<main id="main" class="small-12 large-10 columns" role="main">
 
 			
 
@@ -26,23 +26,26 @@
 					
 									
 				    <div class="entry-content" itemprop="articleBody">
-				    <?php if ( !in_category('video') ) :?>
-				    	<?php if ( has_post_thumbnail() ) :
-							$thumb_id = get_post_thumbnail_id();
-							$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-							$thumb_url = $thumb_url_array[0];
-						?> 
-				    	<div class="imageblockleft small-centered medium-uncentered columns">
-				    		<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">								
-								<?php the_post_thumbnail('full', array(
-									'class' => 'thumbnail',
-									'itemprop' => 'image',
-								)); ?>
-							</div>
-						</div>
-						<?php endif; ?>
-					<?php endif;?>
+				    
+					    <?php if ( !in_category('video') ) :?>
+					    	<?php if ( has_post_thumbnail() ) :
+								$thumb_id = get_post_thumbnail_id();
+								$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+								$thumb_url = $thumb_url_array[0];
+							?> 
+						    	<div class="imageblockleft small-centered medium-uncentered columns">
+						    		<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">								
+										<?php the_post_thumbnail('full', array(
+											'class' => 'thumbnail',
+											'itemprop' => 'image',
+										)); ?>
+									</div>
+								</div>
+							<?php endif; ?>
+						<?php endif;?>
+						
 						<?php the_content(); ?>
+					
 					</div> <!-- end article section -->
 																	
 				</article> <!-- end article -->
