@@ -23,8 +23,10 @@
 						<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
 						<?php get_template_part( 'parts/content', 'byline' ); ?>
 				    </header> <!-- end article header -->
+					
 									
 				    <div class="entry-content" itemprop="articleBody">
+				    <?php if ( !in_category('video') ) :?>
 				    	<?php if ( has_post_thumbnail() ) :
 							$thumb_id = get_post_thumbnail_id();
 							$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
@@ -39,6 +41,7 @@
 							</div>
 						</div>
 						<?php endif; ?>
+					<?php endif;?>
 						<?php the_content(); ?>
 					</div> <!-- end article section -->
 																	
