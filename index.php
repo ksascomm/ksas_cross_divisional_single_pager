@@ -1,12 +1,11 @@
 <?php get_header(); ?>
-<?php $theme_option = flagship_sub_get_global_options();
-$news_query_cond = $theme_option['flagship_sub_news_query_cond']; ?>	
+<?php $theme_option = flagship_sub_get_global_options(); ?>	
 			
 	<div id="content">
 	
 		<div id="inner-content" class="row">
 	
-		     <main id="main" class="small-12 large-8 large-push-3 columns" role="main">
+		     <main id="main" class="small-12 large-10 columns" role="main">
 				<?php if (function_exists('dimox_breadcrumbs') ) { dimox_breadcrumbs();} ?> 
 		    	<h1 class="page-title"><?php echo $theme_option['flagship_sub_feed_name']; ?> Archive</h1>
 		
@@ -27,31 +26,6 @@ $news_query_cond = $theme_option['flagship_sub_news_query_cond']; ?>
 																								
 		    </main> <!-- end #main -->
 		    
-			<div class="small-12 large-3 large-pull-9 columns hide-for-print archive" role="navigation"> 
-			
-				<div class="sidebar">
-					
-					<div class="offset-gutter" id="sidebar_header">
-						<h5 class="grey">Also in 
-							<span class="white">About</span>
-						</h5>
-					</div>
-
-					<?php wp_nav_menu( array(
-						'theme_location' => 'main-nav',
-						'menu_class' => 'nav',
-						'container_class' => '',
-						'sub_menu' => true,
-					)); ?>
-
-		
-				<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
-
-					<?php dynamic_sidebar( 'sidebar1' ); ?>
-					
-				<?php endif; ?>
-
-				</div>
 
 			</div>
 
