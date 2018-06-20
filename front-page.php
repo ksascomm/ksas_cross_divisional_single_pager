@@ -66,14 +66,24 @@
 		    <main id="main" role="main" class="row">
 				
 				<div class="row news-area" id="<?php the_field( 'news_anchor' ); ?>" data-equalizer data-equalize-on="large">
-				    <?php  //News Query		
+
+					<div class="small-12 large-10 columns news-feed home-events">
+						<h1 class="feed-title">Upcoming Events</h1>
+						<p>A complete calendar of all events related to the SNF Agora Institute happening at Johns Hopkins is available on our <a href="<?php echo site_url();?>/events/">events page</a>.</p>
+						<div class="row">
+							<?php echo do_shortcode('[ai1ec view="agenda" events_limit="4"]');	?>
+						</div>
+					</div>
+
+				    <?php  //News Query	
+				    $news_quantity = $theme_option['flagship_sub_news_quantity'];	
 					$news_query = new WP_Query(array(
 						'post_type' => 'post',
-						'posts_per_page' => -1)); 
+						'posts_per_page' => $news_quantity)); 
 							
 					if ( $news_query->have_posts() ) : ?>
 
-						<div class="small-12 large-8 large-push-2 columns news-feed">
+						<div class="small-12 large-8 columns news-feed">
 
 							<h1 class="feed-title"><?php echo $theme_option['flagship_sub_feed_name']; ?></h1>
 								
@@ -82,26 +92,23 @@
 									<?php get_template_part( 'parts/loop', 'news' ); ?>
 
 							<?php endwhile; ?>
-							
+
+						<div class="row">
+							<h5 class="black">
+								<a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">
+									View <?php echo $theme_option['flagship_sub_feed_name']; ?> Archive <span class="fa fa-chevron-circle-right" aria-hidden="true"></span></a>
+							</h5>
 						</div>
-						<?php endif; ?>
-						<?php //conditional for Agora Institute
-						$blog_id = get_current_blog_id();
-						if ( 88 == $blog_id ) : ?>
-							<div class="small-12 large-8 columns news-feed home-events">
-								<h1 class="feed-title">Upcoming Events</h1>
-								<p>A complete calendar of all events related to the SNF Agora Institute happening at Johns Hopkins is available on our <a href="<?php echo site_url();?>/events/">events page</a>.</p>
-								<div class="row">
-									<?php echo do_shortcode('[ai1ec view="agenda" events_limit="4"]');	?>
-								</div>
-							</div>
+						
+						</div>
+					<?php endif; ?>
+						<?php if ( is_active_sidebar( 'homepage2' ) ) : ?>
 							<div class="small-12 large-3 columns">
 								<div class="grey callout">
 									<?php dynamic_sidebar('homepage2'); ?>
 								</div>
 							</div>
-						<?php endif;?>
-
+						<?php endif;?>	
 						<?php if ( is_active_sidebar( 'homepage1' ) && is_active_sidebar( 'homepage2' )  ) : ?>
 						    <div class="row" id="hp-buckets-2">
 						    	<div class="small-6 columns hide-for-print" role="complementary">
