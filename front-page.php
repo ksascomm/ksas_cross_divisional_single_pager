@@ -39,7 +39,7 @@
 							      <p><?php echo get_the_content(); ?></p>
 									   <?php if (get_post_meta($post->ID, 'ecpt_button', true) ) : ?>
 										<h4>
-											<a href="<?php echo get_post_meta($post->ID, 'ecpt_urldestination', true); ?>" onclick="ga('send', 'event', 'Homepage Slider', 'Click', '<?php echo get_post_meta($post->ID, 'ecpt_urldestination', true); ?>')" id="post-<?php the_ID(); ?>" class="button">Watch the Video <span class="fa fa-play-circle-o"></span></a> 
+											<a href="<?php echo get_post_meta($post->ID, 'ecpt_urldestination', true); ?>" onclick="ga('send', 'event', 'Homepage Slider', 'Click', '<?php echo get_post_meta($post->ID, 'ecpt_urldestination', true); ?>')" target="_blank" rel="noopener" id="post-<?php the_ID(); ?>" class="button">Watch the Video <span class="fa fa-play-circle-o"></span></a> 
 										</h4>
 										<?php endif;?>
 							    </figcaption>
