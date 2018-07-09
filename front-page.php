@@ -26,20 +26,30 @@
 			<div class="fullscreen-image-slider hide-for-small-only">			
 				<div class="orbit" role="region" aria-label="Highlighted Research Awards" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
 					<ul class="orbit-container">
-					<?php if ($slider_query->post_count > 1) : ?>
-					<button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-		   			<button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-					<?php endif;?>
+						<?php if ($slider_query->post_count > 1) : ?>
+						<button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+			   			<button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+						<?php endif;?>
 
-					<?php while ($slider_query->have_posts()) : $slider_query->the_post(); ?>
-						<li class="orbit-slide">	
-							<img class="orbit-image" src="<?php echo get_post_meta($post->ID, 'ecpt_slideimage', true); ?>" alt="<?php the_title(); ?>">
-				   		</li>
-				   <?php endwhile;?>
+						<?php while ($slider_query->have_posts()) : $slider_query->the_post(); ?>
+							<li class="orbit-slide">	
+								<img class="orbit-image" src="<?php echo get_post_meta($post->ID, 'ecpt_slideimage', true); ?>" alt="<?php the_title(); ?>">
+								<figcaption class="orbit-caption">
+							      <h1><?php the_title(); ?></h1>
+							      <p><?php echo get_the_content(); ?></p>
+									   <?php if (get_post_meta($post->ID, 'ecpt_button', true) ) : ?>
+										<h4>
+											<a href="<?php echo get_post_meta($post->ID, 'ecpt_urldestination', true); ?>" onclick="ga('send', 'event', 'Homepage Slider', 'Click', '<?php echo get_post_meta($post->ID, 'ecpt_urldestination', true); ?>')" id="post-<?php the_ID(); ?>" class="button">Watch the Video <span class="fa fa-play-circle-o"></span></a> 
+										</h4>
+										<?php endif;?>
+							    </figcaption>
+					   		</li>
+					   <?php endwhile;?>
 				   </ul>
 			   </div>
 			</div>		   
 	 	<?php endif; ?>
+
 			<?php while ( have_posts() ) : the_post(); ?>
 				<div class="home-intro" aria-label="Introduction" id="<?php the_field( 'about_anchor' ); ?>">
 					<div class="row">
